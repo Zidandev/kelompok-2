@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Kelompok 2</title>
+    <link rel="icon" href="icon.ico" type="image/x-icon">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #fff;
+            font-family: 'Times New Roman', Times, serif;
+            overflow-x: hidden;
+        }
+        .splash-screen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            z-index: 10;
+        }
+        .splash-screen img {
+            width: 200px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .splash-screen h1 {
+            font-size: 3em;
+            animation: glow 1.5s ease-in-out infinite alternate;
+        }
+        .header {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            box-shadow: 0 0 15px #1995ad;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 9;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+        .banner {
+            margin-top: 80px;
+            text-align: center;
+        }
+        .banner img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+        }
+        .intro {
+            text-align: center;
+            padding: 20px;
+            background-color: #222;
+        }
+        .intro h2 {
+            font-size: 2em;
+            margin: 0;
+        }
+        .intro p {
+            font-size: 1.2em;
+            margin: 10px 0 0 0;
+        }
+        .container {
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #222;
+        }
+        .profile-card {
+            display: inline-block;
+            background-color: #333;
+            border-radius: 10px;
+            box-shadow: 0 0 15px  #1995ad;
+            margin: 20px;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            cursor: pointer;
+            white-space: normal;
+        }
+        .profile-card img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+        }
+        .profile-card h2 {
+            margin: 10px 0;
+            color: #fff;
+        }
+        .profile-card p {
+            margin: 5px 0;
+            color: #fff;
+        }
+        .profile-card a {
+            color: #ffeb3b; /* Yellow color */
+            text-decoration: none;
+            display: block;
+            margin-top: 10px;
+        }
+        .profile-card a:hover {
+            text-decoration: underline;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 11;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .modal-content {
+            background-color: #222;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            box-shadow: 0 0 15px  #1995ad;
+            border-radius: 10px;
+            text-align: center;
+            color: #fff;
+        }
+        .modal-content img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            box-shadow: 0 0 15px  #1995ad;
+            margin-top: 20px;
+            color: #fff;
+        }
+        .footer p {
+            margin: 5px 0;
+        }
+        .footer a {
+            color: #ffeb3b; /* Yellow color */
+            text-decoration: none;
+        }
+        @keyframes glow {
+    from {
+        text-shadow: 
+            0 0 10px #00bfff, 
+            0 0 20px #00bfff, 
+            0 0 30px #00bfff, 
+            0 0 40px #00bfff, 
+            0 0 50px #00bfff, 
+            0 0 60px #00bfff, 
+            0 0 70px #00bfff;
+    }
+    to {
+        text-shadow: 
+            0 0 10px #00bfff, 
+            0 0 20px #00bfff, 
+            0 0 30px #00bfff, 
+            0 0 40px #00bfff, 
+            0 0 50px #00bfff, 
+            0 0 60px #00bfff, 
+            0 0 70px #00bfff;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="splash-screen" id="splash-screen">
+        <img src="logo.jpeg" alt="Logo">
+        <h1>Kelompok 2</h1>
+    </div>
+    <div class="header">
+        <h1>Kelompok 2</h1>
+    </div>
+    <div class="banner">
+        <img src="https://via.placeholder.com/1200x300" alt="Banner">
+    </div>
+    <div class="intro">
+        <h2>Selamat Datang di Profil Kelompok 2</h2>
+        <p>Di sini, Kalian dapat melihat berbagai profesi yang diinginkan oleh anggota kelompok kami, beserta alasan dan pelajaran yang diperlukan untuk mencapai profesi tersebut.</p>
+        <p>Kami juga mempunyai beberapa hasil karya kami</p>
+    </div>
+    <div class="container">
+        <div class="profile-card" onclick="openModal('modal1')">
+            <img src="https://via.placeholder.com/150" alt="Person 1">
+            <h2>Zidane A.N</h2>
+            <p><strong>Profesi:</strong> Game Dev</p>
+            <a href="#modal1" onclick="openModal('modal1')">Lihat Selengkapnya</a>
+        </div>
+        <div class="profile-card" onclick="openModal('modal2')">
+            <img src="https://via.placeholder.com/150" alt="Person 2">
+            <h2>M. Haikal</h2>
+            <p><strong>Profesi:</strong> Front-end Dev</p>
+            <a href="#modal2" onclick="openModal('modal2')">Lihat Selengkapnya</a>
+        </div>
+        <div class="profile-card" onclick="openModal('modal3')">
+            <img src="https://via.placeholder.com/150" alt="Person 3">
+            <h2>Farel A.</h2>
+            <p><strong>Profesi:</strong> Game Desainer</p>
+            <a href="#modal3" onclick="openModal('modal3')">Lihat Selengkapnya</a>
+        </div>
+        <div class="profile-card" onclick="openModal('modal4')">
+            <img src="https://via.placeholder.com/150" alt="Person 4">
+            <h2>Jose A.S</h2>
+            <p><strong>Profesi:</strong> Game Desainer</p>
+            <a href="#modal4" onclick="openModal('modal4')">Lihat Selengkapnya</a>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal1')">&times;</span>
+            <img src="https://via.placeholder.com/150" alt="Person 1">
+            <h2>Zidane A.N</h2>
+            <p><strong>Profesi:</strong> Game Dev</p>
+            <p><strong>Kenapa:</strong> Karena Saya Ingin Membuat Game Saya Sendiri</p>
+            <p><strong>Pelajaran:</strong> Game Desain, Game Function, Aplikasi, Dan Server.</p>
+            <p><strong>Hasil:</strong> <a href="zidan.html" target="_blank">Lihat hasilnya</a></p>
+        </div>
+    </div>
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal2')">&times;</span>
+            <img src="https://via.placeholder.com/150" alt="Person 2">
+            <h2>M. Haikal</h2>
+            <p><strong>Profesi:</strong> Front-end Dev</p>
+            <p><strong>Kenapa:</strong> Karena Saya Suka Membuat Tampilan Website.</p>
+            <p><strong>Pelajaran:</strong> Belajar HTML, CSS dan JavaScript.</p>
+            <p><strong>Hasil:</strong> <a href="haikal.html" target="_blank">Lihat hasilnya</a></p>
+        </div>
+    </div>
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal3')">&times;</span>
+            <img src="https://via.placeholder.com/150" alt="Person 3">
+            <h2>Farel A.</h2>
+            <p><strong>Profesi:</strong> Game Desainer</p>
+            <p><strong>Kenapa:</strong> Ingin Membuat Desain-Desain Untuk Game Dan Website.</p>
+            <p><strong>Pelajaran:</strong> Blender, CSS.</p>
+            <p><strong>Hasil:</strong> <a href="farel.html" target="_blank">Lihat hasilnya</a></p>
+        </div>
+    </div>
+    <div id="modal4" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal4')">&times;</span>
+            <img src="https://via.placeholder.com/150" alt="Person 4">
+            <h2>Jose A.S</h2>
+            <p><strong>Profesi:</strong> Game Desainer</p>
+            <p><strong>Kenapa:</strong> Ingin Membuat Desain-Desain Untuk Game Dan Website.</p>
+            <p><strong>Pelajaran:</strong> Blender, CSS.</p>
+            <p><strong>Hasil:</strong> <a href="jose.html" target="_blank">Lihat hasilnya</a></p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>© Kelompok 2 2024</p>
+        <p>Email: <a href="mailto:zidaneachmadnurjayyin@gmail.com">Hubungi</a></p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(function() {
+                document.getElementById("splash-screen").style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }, 3000); // Adjust the timeout duration as needed
+        });
+
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+            document.body.style.overflow = 'auto';
+        }
+    </script>
+</body>
+</html>

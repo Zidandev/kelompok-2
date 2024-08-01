@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Farel</title>
+    <link rel="icon" href="icon.ico" type="image/x-icon">
+    <style>
+        body {
+            background-color: #121212;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #333;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 0 10px #00bfff;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2em;
+            color: #00bfff;
+            animation: glow 1.5s ease-in-out infinite alternate;
+        }
+        .content {
+            padding: 20px;
+            text-align: center;
+            background-color: #222;
+        }
+        .content h2 {
+            font-size: 2.5em;
+            color: #fff;
+        }
+        .content p {
+            font-size: 1.2em;
+            color: #bbb;
+        }
+        .model-viewer {
+            width: 400px;
+            height: 400px;
+            margin: 0 auto;
+            background-color: #333;
+            box-shadow: 0 0 10px #00bfff;
+            border: 5px solid #00bfff;
+            border-radius: 10px;
+        }
+        .footer {
+            background-color: #333;
+            text-align: center;
+            padding: 15px;
+            color: #fff;
+            box-shadow: 0 0 10px #00bfff;
+        }
+        .footer p {
+            margin: 0;
+        }
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #00bfff;
+            }
+            to {
+                text-shadow: 0 0 20px #00bfff;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Portofolio Farel</h1>
+    </div>
+    <div class="content">
+        <h2>Karya 3D Model Saya</h2>
+        <p>Berikut adalah contoh karya model 3D saya:</p>
+        <div class="model-viewer" id="modelViewer"></div>
+    </div>
+    <div class="footer">
+        <p>© Kelompok 2 2024</p>
+        <p>Email: <a href="zidaneachmadnurjayyin@gmail.com">Hubungi</a></p>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/loaders/GLTFLoader.js"></script>
+    <script>
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(400, 400);
+        document.getElementById('modelViewer').appendChild(renderer.domElement);
+
+        const loader = new THREE.GLTFLoader();
+        loader.load('tes.glb', function (gltf) {
+            scene.add(gltf.scene);
+        }, function (xhr) {
+            console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+        }, function (error) {
+            console.error('An error happened', error);
+        });
+
+        const light = new THREE.AmbientLight(0x404040, 5); // Soft white light
+        scene.add(light);
+
+        camera.position.z = 5;
+
+        const animate = function () {
+            requestAnimationFrame(animate);
+            scene.rotation.y += 0.01;
+            renderer.render(scene, camera);
+        };
+
+        animate();
+    </script>
+</body>
+</html>

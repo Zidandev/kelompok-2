@@ -25,6 +25,26 @@
             color: #00bfff;
             animation: glow 1.5s ease-in-out infinite alternate;
         }
+        .splash-screen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: #020216;
+            z-index: 10;
+        }
+        .splash-screen img {
+            width: 500px;
+            height: auto;
+            margin-bottom: 30px;
+        }
+        .splash-screen h1 {
+            font-size: 3rem;
+            animation: glow 1s ease-in-out infinite alternate;
+        }
         .content {
             padding: 20px;
             text-align: center;
@@ -72,6 +92,10 @@
     </style>
 </head>
 <body>
+    <div class="splash-screen" id="splash-screen">
+        <img src="https://cdn.dribbble.com/users/1373613/screenshots/5397385/end.gif" alt="Logo">
+        <h1>Loading...</h1>
+    </div>
     <div class="header">
         <h1>Proyek Jose</h1>
     </div>
@@ -88,5 +112,13 @@
         <p>Email: <a href="mailto:zidaneachmadnurjayyin@gmail.com">Hubungi</a></p>
     </div>
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(function() {
+                document.getElementById("splash-screen").style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }, 4000); // Adjust the timeout duration as needed
+        });
+        </script>
 </body>
 </html>
